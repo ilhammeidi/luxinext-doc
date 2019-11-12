@@ -1124,6 +1124,7 @@ img {
 
 #wrapper.toggled #sidebar-wrapper {
     width: 250px;
+    background: url('../images/deco.png') 40% 0% no-repeat #0e47a1
 }
 
 #page-content-wrapper {
@@ -1165,15 +1166,15 @@ img {
     font-weight: bold;
     text-transform: uppercase;
     margin: 30px 0 10px;
-    color: #3f51b5;
+    color: #71ddff;
     font-size: 12px;
-    border-left: 5px solid #3f51b5;
+    border-left: 5px solid #71ddff;
     padding: 0 0 0 25px;
 }
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.87);
+    color: #FFF;
     text-align: left;
     margin-left: 30px;
     transition: all .3s ease;
@@ -1183,8 +1184,7 @@ img {
 }
 
 .sidebar-nav li.current > a{
-    color: #283593;
-    background: rgba(140, 158, 255, 0.24) !important;
+    background: rgba(255, 255, 255, 0.24) !important;
 }
 
 .sidebar-nav li a:hover {
@@ -1214,6 +1214,7 @@ img {
     padding-top: 20px;
     text-align: center;
     padding-left: 0;
+    margin: 0
 }
 .sidebar-nav > .sidebar-brand a img{
     width: 80px;
