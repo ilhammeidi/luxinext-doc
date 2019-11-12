@@ -1,1 +1,2 @@
-# luxinext-doc
+# luxi-next-docs
+Luxi Next Documentation
