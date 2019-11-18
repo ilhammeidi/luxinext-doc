@@ -1206,7 +1206,7 @@ img {
 .sidebar-nav > .sidebar-brand h4{
     font-size: 18px;
     margin-left: 36px;
-    color: #3f51b5;
+    color: #FFF;
 }
 
 .sidebar-nav > .sidebar-brand a {
@@ -1317,7 +1317,9 @@ ul.styled li{
   line-height: 110px;
   margin: 10px auto;
 }
-
+.part-categories .row{
+  margin: 20px 0
+}
 .back {
   display: block;
   margin: 40px 24px 20px 36px;
