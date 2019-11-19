@@ -243,526 +243,67 @@
                         <hr />
                       <div class="directory-tree">
                         <pre>
-└───packages                                                                                    
-    ├───agency-theme                                                                            
-    │   ├───components                                                                          
-    │   │   ├───About                                                                           
-    │   │   ├───CallAction                                                                      
-    │   │   ├───Cards                                                                           
-    │   │   ├───CaseStudies                                                                     
-    │   │   ├───CompanyLogo                                                                     
-    │   │   ├───Counter                                                                         
-    │   │   ├───Error                                                                           
-    │   │   ├───Expertise                                                                       
-    │   │   ├───Footer                                                                          
-    │   │   ├───Forms                                                                           
-    │   │   ├───Header                                                                          
-    │   │   ├───MapAddress                                                                      
-    │   │   ├───Notification                                                                    
-    │   │   ├───PageNav                                                                         
-    │   │   ├───Parallax                                                                        
-    │   │   ├───Services                                                                        
-    │   │   ├───Testimonials                                                                    
-    │   │   ├───Title                                                                           
-    │   │   └───VideoBanner                                                                     
-    │   ├───pages                                                                               
-    │   ├───static                                                                              
-    │   │   ├───favicons                                                                        
-    │   │   ├───images                                                                          
-    │   │   │   ├───agency                                                                      
-    │   │   │   ├───decoration                                                                  
-    │   │   │   └───logos                                                                       
-    │   │   ├───locales                                                                         
-    │   │   │   ├───ar                                                                          
-    │   │   │   ├───de                                                                          
-    │   │   │   ├───en                                                                          
-    │   │   │   ├───id                                                                          
-    │   │   │   ├───pt                                                                          
-    │   │   │   └───zh                                                                          
-    │   │   └───text                                                                            
-    │   ├───theme                                                                               
-    │   └───vendors                                                                             
-    │       └───slick                                                                           
-    │           └───fonts                                                                       
-    ├───architect-theme                                                                         
-    │   ├───components                                                                          
-    │   │   ├───About                                                                           
-    │   │   ├───Blog                                                                            
-    │   │   ├───Cards                                                                           
-    │   │   ├───Counter                                                                         
-    │   │   ├───Error                                                                           
-    │   │   ├───Featured                                                                        
-    │   │   ├───Footer                                                                          
-    │   │   ├───Forms                                                                           
-    │   │   ├───Header                                                                          
-    │   │   ├───Notification                                                                    
-    │   │   ├───PageNav                                                                         
-    │   │   ├───Parallax                                                                        
-    │   │   ├───Project                                                                         
-    │   │   ├───Services                                                                        
-    │   │   ├───SubscribeForm                                                                   
-    │   │   ├───Team                                                                            
-    │   │   ├───Title                                                                           
-    │   │   └───VideoBanner                                                                     
-    │   ├───pages                                                                               
-    │   ├───static                                                                              
-    │   │   ├───favicons                                                                        
-    │   │   ├───images                                                                          
-    │   │   │   ├───architect                                                                   
-    │   │   │   └───decoration                                                                  
-    │   │   ├───locales                                                                         
-    │   │   │   ├───ar                                                                          
-    │   │   │   ├───de                                                                          
-    │   │   │   ├───en                                                                          
-    │   │   │   ├───id                                                                          
-    │   │   │   ├───pt                                                                          
-    │   │   │   └───zh                                                                          
-    │   │   └───text                                                                            
-    │   ├───theme                                                                               
-    │   └───vendors                                                                             
-    │       └───slick                                                                           
-    │           └───fonts                                                                       
-    ├───crypto-theme                                                                            
-    │   ├───components                                                                          
-    │   │   ├───Banner                                                                          
-    │   │   ├───Benefit                                                                         
-    │   │   ├───Cards                                                                           
-    │   │   ├───Counter                                                                         
-    │   │   ├───Error                                                                           
-    │   │   ├───Faq                                                                             
-    │   │   ├───Feature                                                                         
-    │   │   ├───Footer                                                                          
-    │   │   ├───Forms                                                                           
-    │   │   ├───Header                                                                          
-    │   │   ├───Notification                                                                    
-    │   │   ├───PageNav                                                                         
-    │   │   ├───Parallax                                                                        
-    │   │   ├───Promotion                                                                       
-    │   │   ├───Testimonials                                                                    
-    │   │   └───Title                                                                           
-    │   ├───pages                                                                               
-    │   ├───static                                                                              
-    │   │   ├───favicons                                                                        
-    │   │   ├───images                                                                          
-    │   │   │   ├───crypto                                                                      
-    │   │   │   └───logos                                                                       
-    │   │   ├───locales                                                                         
-    │   │   │   ├───ar                                                                          
-    │   │   │   ├───de                                                                          
-    │   │   │   ├───en                                                                          
-    │   │   │   ├───id                                                                          
-    │   │   │   ├───pt                                                                          
-    │   │   │   └───zh                                                                          
-    │   │   ├───scripts                                                                         
-    │   │   └───text                                                                            
-    │   ├───theme                                                                               
-    │   └───vendors                                                                             
-    │       └───slick                                                                           
-    │           └───fonts                                                                       
-    ├───fashion-theme                                                                           
-    │   ├───components                                                                          
-    │   │   ├───Blog                                                                            
-    │   │   ├───Cards                                                                           
-    │   │   ├───Categories                                                                      
-    │   │   ├───Error                                                                           
-    │   │   ├───Feature                                                                         
-    │   │   ├───FeaturedProducts                                                                
-    │   │   ├───Footer                                                                          
-    │   │   ├───Header                                                                          
-    │   │   ├───NewProducts                                                                     
-    │   │   ├───Notification                                                                    
-    │   │   ├───PageNav                                                                         
-    │   │   ├───Promotions                                                                      
-    │   │   ├───Testimonials                                                                    
-    │   │   ├───Title                                                                           
-    │   │   ├───Trending                                                                        
-    │   │   └───VideoBanner                                                                     
-    │   ├───pages                                                                               
-    │   ├───static                                                                              
-    │   │   ├───favicons                                                                        
-    │   │   ├───images                                                                          
-    │   │   ├───locales                                                                         
-    │   │   │   ├───ar                                                                          
-    │   │   │   ├───de                                                                          
-    │   │   │   ├───en                                                                          
-    │   │   │   ├───id                                                                          
-    │   │   │   ├───pt                                                                          
-    │   │   │   └───zh                                                                          
-    │   │   └───text                                                                            
-    │   ├───theme                                                                               
-    │   └───vendors                                                                             
-    │       └───slick                                                                           
-    │           └───fonts                                                                       
-    ├───hosting-theme                                                                           
-    │   ├───components                                                                          
-    │   │   ├───Banner                                                                          
-    │   │   ├───Benefit                                                                         
-    │   │   ├───Cards                                                                           
-    │   │   ├───Counter                                                                         
-    │   │   ├───Error                                                                           
-    │   │   ├───Feature                                                                         
-    │   │   ├───Footer                                                                          
-    │   │   ├───Forms                                                                           
-    │   │   ├───Header                                                                          
-    │   │   ├───Notification                                                                    
-    │   │   ├───PageNav                                                                         
-    │   │   ├───Parallax                                                                        
-    │   │   ├───ParticlesCanvas                                                                 
-    │   │   ├───PricingPlan                                                                     
-    │   │   ├───Promotion                                                                       
-    │   │   ├───SubscribeForm                                                                   
-    │   │   ├───Testimonials                                                                    
-    │   │   └───Title                                                                           
-    │   ├───pages                                                                               
-    │   ├───static                                                                              
-    │   │   ├───favicons                                                                        
-    │   │   ├───images                                                                          
-    │   │   │   ├───hosting                                                                     
-    │   │   │   └───logos                                                                       
-    │   │   ├───locales                                                                         
-    │   │   │   ├───ar                                                                          
-    │   │   │   ├───de                                                                          
-    │   │   │   ├───en                                                                          
-    │   │   │   ├───id                                                                          
-    │   │   │   ├───pt                                                                          
-    │   │   │   └───zh                                                                          
-    │   │   ├───scripts                                                                         
-    │   │   │   └───vanta                                                                       
-    │   │   └───text                                                                            
-    │   ├───theme                                                                               
-    │   └───vendors                                                                             
-    │       └───slick                                                                           
-    │           └───fonts                                                                       
-    ├───mobile-apps-theme                                                                       
-    │   ├───components                                                                          
-    │   │   ├───Banner                                                                          
-    │   │   ├───Cards                                                                           
-    │   │   ├───CompanyLogo                                                                     
-    │   │   ├───Counter                                                                         
-    │   │   ├───Error                                                                           
-    │   │   ├───Faq                                                                             
-    │   │   ├───Feature                                                                         
-    │   │   ├───Footer                                                                          
-    │   │   ├───Forms                                                                           
-    │   │   ├───Header                                                                          
-    │   │   ├───NewsEvent                                                                       
-    │   │   ├───Notification                                                                    
-    │   │   ├───PageNav                                                                         
-    │   │   ├───Parallax                                                                        
-    │   │   ├───Showcase                                                                        
-    │   │   ├───Testimonials                                                                    
-    │   │   └───Title                                                                           
-    │   ├───pages                                                                               
-    │   ├───static                                                                              
-    │   │   ├───favicons                                                                        
-    │   │   ├───images                                                                          
-    │   │   │   ├───logos                                                                       
-    │   │   │   └───mobile                                                                      
-    │   │   ├───locales                                                                         
-    │   │   │   ├───ar                                                                          
-    │   │   │   ├───de                                                                          
-    │   │   │   ├───en                                                                          
-    │   │   │   ├───id                                                                          
-    │   │   │   ├───pt                                                                          
-    │   │   │   └───zh                                                                          
-    │   │   ├───scripts                                                                         
-    │   │   └───text                                                                            
-    │   ├───theme                                                                               
-    │   └───vendors                                                                             
-    │       └───slick                                                                           
-    │           └───fonts                                                                       
-    ├───profile-theme                                                                           
-    │   ├───components                                                                          
-    │   │   ├───About                                                                           
-    │   │   ├───BannerNav                                                                       
-    │   │   ├───Blog                                                                            
-    │   │   ├───Cards                                                                           
-    │   │   ├───Contact                                                                         
-    │   │   ├───Counter                                                                         
-    │   │   ├───Error                                                                           
-    │   │   ├───Footer                                                                          
-    │   │   ├───Gallery                                                                         
-    │   │   ├───Header                                                                          
-    │   │   ├───Notification                                                                    
-    │   │   ├───PageNav                                                                         
-    │   │   ├───Parallax                                                                        
-    │   │   ├───Services                                                                        
-    │   │   ├───Settings                                                                        
-    │   │   ├───SideNavigation                                                                  
-    │   │   ├───Testimonials                                                                    
-    │   │   ├───Timeline                                                                        
-    │   │   └───Title                                                                           
-    │   ├───pages                                                                               
-    │   ├───static                                                                              
-    │   │   ├───favicons                                                                        
-    │   │   ├───images                                                                          
-    │   │   │   ├───decoration                                                                  
-    │   │   │   ├───logos                                                                       
-    │   │   │   └───profile                                                                     
-    │   │   ├───locales                                                                         
-    │   │   │   ├───ar                                                                          
-    │   │   │   ├───de                                                                          
-    │   │   │   ├───en                                                                          
-    │   │   │   ├───id                                                                          
-    │   │   │   ├───pt                                                                          
-    │   │   │   └───zh                                                                          
-    │   │   └───text                                                                            
-    │   ├───theme                                                                               
-    │   └───vendors                                                                             
-    │       └───slick                                                                           
-    │           └───fonts                                                                       
-    ├───saas-theme                                                                              
-    │   ├───components                                                                          
-    │   │   ├───Banner                                                                          
-    │   │   ├───Cards                                                                           
-    │   │   ├───CompanyLogo                                                                     
-    │   │   ├───Counter                                                                         
-    │   │   ├───Error                                                                           
-    │   │   ├───Faq                                                                             
-    │   │   ├───Feature                                                                         
-    │   │   ├───Footer                                                                          
-    │   │   ├───Forms                                                                           
-    │   │   ├───Header                                                                          
-    │   │   ├───NewsEvent                                                                       
-    │   │   ├───Notification                                                                    
-    │   │   ├───PageNav                                                                         
-    │   │   ├───Parallax                                                                        
-    │   │   ├───PricingPlan                                                                     
-    │   │   ├───Testimonials                                                                    
-    │   │   └───Title                                                                           
-    │   ├───pages                                                                               
-    │   ├───static                                                                              
-    │   │   ├───favicons                                                                        
-    │   │   ├───images                                                                          
-    │   │   │   ├───decoration                                                                  
-    │   │   │   ├───logos                                                                       
-    │   │   │   └───saas                                                                        
-    │   │   ├───locales                                                                         
-    │   │   │   ├───ar                                                                          
-    │   │   │   ├───de                                                                          
-    │   │   │   ├───en                                                                          
-    │   │   │   ├───id                                                                          
-    │   │   │   ├───pt                                                                          
-    │   │   │   └───zh                                                                          
-    │   │   └───text                                                                            
-    │   ├───theme                                                                               
-    │   └───vendors                                                                             
-    │       └───slick                                                                           
-    │           └───fonts                                                                       
-    ├───showcase                                                                                
-    │   ├───components                                                                          
-    │   │   ├───agency                                                                          
-    │   │   │   ├───About                                                                       
-    │   │   │   ├───CallAction                                                                  
-    │   │   │   ├───Cards                                                                       
-    │   │   │   ├───CaseStudies                                                                 
-    │   │   │   ├───CompanyLogo                                                                 
-    │   │   │   ├───Counter                                                                     
-    │   │   │   ├───Error                                                                       
-    │   │   │   ├───Expertise                                                                   
-    │   │   │   ├───Footer                                                                      
-    │   │   │   ├───Forms                                                                       
-    │   │   │   ├───Header                                                                      
-    │   │   │   ├───MapAddress                                                                  
-    │   │   │   ├───Notification                                                                
-    │   │   │   ├───PageNav                                                                     
-    │   │   │   ├───Parallax                                                                    
-    │   │   │   ├───Services                                                                    
-    │   │   │   ├───Testimonials                                                                
-    │   │   │   ├───Title                                                                       
-    │   │   │   └───VideoBanner                                                                 
-    │   │   ├───architect                                                                       
-    │   │   │   ├───About                                                                       
-    │   │   │   ├───Blog                                                                        
-    │   │   │   ├───Cards                                                                       
-    │   │   │   ├───Counter                                                                     
-    │   │   │   ├───Error                                                                       
-    │   │   │   ├───Featured                                                                    
-    │   │   │   ├───Footer                                                                      
-    │   │   │   ├───Forms                                                                       
-    │   │   │   ├───Header                                                                      
-    │   │   │   ├───Notification                                                                
-    │   │   │   ├───PageNav                                                                     
-    │   │   │   ├───Parallax                                                                    
-    │   │   │   ├───Project                                                                     
-    │   │   │   ├───Services                                                                    
-    │   │   │   ├───SubscribeForm                                                               
-    │   │   │   ├───Team                                                                        
-    │   │   │   ├───Title                                                                       
-    │   │   │   └───VideoBanner                                                                 
-    │   │   ├───crypto                                                                          
-    │   │   │   ├───Banner                                                                      
-    │   │   │   ├───Benefit                                                                     
-    │   │   │   ├───Cards                                                                       
-    │   │   │   ├───Counter                                                                     
-    │   │   │   ├───Error                                                                       
-    │   │   │   ├───Faq                                                                         
-    │   │   │   ├───Feature                                                                     
-    │   │   │   ├───Footer                                                                      
-    │   │   │   ├───Forms                                                                       
-    │   │   │   ├───Header                                                                      
-    │   │   │   ├───Notification                                                                
-    │   │   │   ├───PageNav                                                                     
-    │   │   │   ├───Parallax                                                                    
-    │   │   │   ├───Promotion                                                                   
-    │   │   │   ├───Testimonials                                                                
-    │   │   │   └───Title                                                                       
-    │   │   ├───fashion                                                                         
-    │   │   │   ├───Blog                                                                        
-    │   │   │   ├───Cards                                                                       
-    │   │   │   ├───Categories                                                                  
-    │   │   │   ├───Error                                                                       
-    │   │   │   ├───Feature                                                                     
-    │   │   │   ├───FeaturedProducts                                                            
-    │   │   │   ├───Footer                                                                      
-    │   │   │   ├───Header                                                                      
-    │   │   │   ├───NewProducts                                                                 
-    │   │   │   ├───Notification                                                                
-    │   │   │   ├───PageNav                                                                     
-    │   │   │   ├───Promotions                                                                  
-    │   │   │   ├───Testimonials                                                                
-    │   │   │   ├───Title                                                                       
-    │   │   │   ├───Trending                                                                    
-    │   │   │   └───VideoBanner                                                                 
-    │   │   ├───hosting                                                                         
-    │   │   │   ├───Banner                                                                      
-    │   │   │   ├───Benefit                                                                     
-    │   │   │   ├───Cards                                                                       
-    │   │   │   ├───Counter                                                                     
-    │   │   │   ├───Error                                                                       
-    │   │   │   ├───Feature                                                                     
-    │   │   │   ├───Footer                                                                      
-    │   │   │   ├───Forms                                                                       
-    │   │   │   ├───Header                                                                      
-    │   │   │   ├───Notification                                                                
-    │   │   │   ├───PageNav                                                                     
-    │   │   │   ├───Parallax                                                                    
-    │   │   │   ├───ParticlesCanvas                                                             
-    │   │   │   ├───PricingPlan                                                                 
-    │   │   │   ├───Promotion                                                                   
-    │   │   │   ├───SubscribeForm                                                               
-    │   │   │   ├───Testimonials                                                                
-    │   │   │   └───Title                                                                       
-    │   │   ├───mobile                                                                          
-    │   │   │   ├───Banner                                                                      
-    │   │   │   ├───Cards                                                                       
-    │   │   │   ├───CompanyLogo                                                                 
-    │   │   │   ├───Counter                                                                     
-    │   │   │   ├───Error                                                                       
-    │   │   │   ├───Faq                                                                         
-    │   │   │   ├───Feature                                                                     
-    │   │   │   ├───Footer                                                                      
-    │   │   │   ├───Forms                                                                       
-    │   │   │   ├───Header                                                                      
-    │   │   │   ├───NewsEvent                                                                   
-    │   │   │   ├───Notification                                                                
-    │   │   │   ├───PageNav                                                                     
-    │   │   │   ├───Parallax                                                                    
-    │   │   │   ├───Showcase                                                                    
-    │   │   │   ├───Testimonials                                                                
-    │   │   │   └───Title                                                                       
-    │   │   ├───profile                                                                         
-    │   │   │   ├───About                                                                       
-    │   │   │   ├───BannerNav                                                                   
-    │   │   │   ├───Blog                                                                        
-    │   │   │   ├───Cards                                                                       
-    │   │   │   ├───Contact                                                                     
-    │   │   │   ├───Counter                                                                     
-    │   │   │   ├───Error                                                                       
-    │   │   │   ├───Footer                                                                      
-    │   │   │   ├───Gallery                                                                     
-    │   │   │   ├───Header                                                                      
-    │   │   │   ├───Notification                                                                
-    │   │   │   ├───PageNav                                                                     
-    │   │   │   ├───Parallax                                                                    
-    │   │   │   ├───Services                                                                    
-    │   │   │   ├───Settings                                                                    
-    │   │   │   ├───SideNavigation                                                              
-    │   │   │   ├───Testimonials                                                                
-    │   │   │   ├───Timeline                                                                    
-    │   │   │   └───Title                                                                       
-    │   │   ├───saas                                                                            
-    │   │   │   ├───Banner                                                                      
-    │   │   │   ├───Cards                                                                       
-    │   │   │   ├───CompanyLogo                                                                 
-    │   │   │   ├───Counter                                                                     
-    │   │   │   ├───Error                                                                       
-    │   │   │   ├───Faq                                                                         
-    │   │   │   ├───Feature                                                                     
-    │   │   │   ├───Footer                                                                      
-    │   │   │   ├───Forms                                                                       
-    │   │   │   ├───Header                                                                      
-    │   │   │   ├───NewsEvent                                                                   
-    │   │   │   ├───Notification                                                                
-    │   │   │   ├───PageNav                                                                     
-    │   │   │   ├───Parallax                                                                    
-    │   │   │   ├───PricingPlan                                                                 
-    │   │   │   ├───Testimonials                                                                
-    │   │   │   └───Title                                                                       
-    │   │   └───wrapper                                                                         
-    │   ├───pages                                                                               
-    │   │   ├───agency                                                                          
-    │   │   ├───architect                                                                       
-    │   │   ├───cryptocurrency                                                                  
-    │   │   ├───fashion                                                                         
-    │   │   ├───hosting                                                                         
-    │   │   ├───mobile-apps                                                                     
-    │   │   ├───profile                                                                         
-    │   │   └───saas                                                                            
-    │   ├───static                                                                              
-    │   │   ├───favicons                                                                        
-    │   │   ├───images                                                                          
-    │   │   │   ├───agency                                                                      
-    │   │   │   ├───architect                                                                   
-    │   │   │   ├───crypto                                                                      
-    │   │   │   ├───decoration                                                                  
-    │   │   │   ├───hosting                                                                     
-    │   │   │   ├───logos                                                                       
-    │   │   │   ├───mobile                                                                      
-    │   │   │   ├───profile                                                                     
-    │   │   │   └───saas                                                                        
-    │   │   ├───locales                                                                         
-    │   │   │   ├───ar                                                                          
-    │   │   │   ├───de                                                                          
-    │   │   │   ├───en                                                                          
-    │   │   │   ├───id                                                                          
-    │   │   │   ├───pt                                                                          
-    │   │   │   └───zh                                                                          
-    │   │   ├───scripts                                                                         
-    │   │   │   └───vanta                                                                       
-    │   │   └───text                                                                            
-    │   ├───theme                                                                               
-    │   └───vendors                                                                             
-    │       └───slick                                                                           
-    │           └───fonts                                                                       
-    └───starter-project                                                                         
-        ├───components                                                                          
-        │   ├───AnimateSlider                                                                   
-        │   ├───Blog                                                                            
-        │   ├───Counter                                                                         
-        │   ├───Feature                                                                         
-        │   ├───Footer                                                                          
-        │   ├───Header                                                                          
-        │   ├───PageNav                                                                         
-        │   ├───Pricing                                                                         
-        │   ├───Subscribe                                                                       
-        │   └───Testimonials                                                                    
-        ├───pages                                                                               
-        ├───static                                                                              
-        │   ├───favicons                                                                        
-        │   ├───images                                                                          
-        │   │   └───decoration                                                                  
-        │   ├───locales                                                                         
-        │   │   ├───ar                                                                          
-        │   │   ├───de                                                                          
-        │   │   ├───en                                                                          
-        │   │   ├───id                                                                          
-        │   │   ├───pt                                                                          
-        │   │   └───zh                                                                          
-        │   └───text                                                                            
-        └───vendors                                                                             
-            └───slick                                                                           
-                └───fonts                                                                       
+└── packages
+    ├── agency-theme
+    │   ├── components
+    │   ├── pages
+    │   ├── static
+    │   ├── theme
+    │   └── vendors
+    ├── architect-theme
+    │   ├── components
+    │   ├── pages
+    │   ├── static
+    │   ├── theme
+    │   └── vendors
+    ├── crypto-theme
+    │   ├── components
+    │   ├── pages
+    │   ├── static
+    │   ├── theme
+    │   └── vendors
+    ├── fashion-theme
+    │   ├── components
+    │   ├── pages
+    │   ├── static
+    │   ├── theme
+    │   └── vendors
+    ├── hosting-theme
+    │   ├── components
+    │   ├── pages
+    │   ├── static
+    │   ├── theme
+    │   └── vendors
+    ├── mobile-apps-theme
+    │   ├── components
+    │   ├── pages
+    │   ├── static
+    │   ├── theme
+    │   └── vendors
+    ├── profile-theme
+    │   ├── components
+    │   ├── pages
+    │   ├── static
+    │   ├── theme
+    │   └── vendors
+    ├── saas-theme
+    │   ├── components
+    │   ├── pages
+    │   ├── static
+    │   ├── theme
+    │   └── vendors
+    ├── showcase
+    │   ├── components
+    │   ├── pages
+    │   ├── static
+    │   ├── theme
+    │   └── vendors
+    └── starter-project
+        ├── components
+        ├── pages
+        ├── static
+        ├── theme
+        └── vendors                                                                  
                         </pre>
                       </div>
                     </div>
