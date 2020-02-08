@@ -60,6 +60,9 @@
                     <a href="#install">Installation &amp; Running App</a>
                 </li>
                 <li>
+                    <a href="#build">Build App</a>
+                </li>
+                <li>
                     <a href="#deploy">Deployment</a>
                 </li>
                 <li>
@@ -112,14 +115,14 @@
                         <h1 class="title">Thank you for Purchasing </h1>
                         <br /><br />
                         <h3>Luxiren - React JS Landing Page Collection</h3>
-                        <h4>Version 1.0.0</h4>
+                        <h4>Version 1.1.0</h4>
                         <hr />
                         <ul>
                             <li>
                                 Created : 19 Nov 2019
                             </li>
                             <li>
-                                Latest Update : 19 Nov 2019
+                                Latest Update : 3 Feb 2020
                             </li>
                         </ul>
                     </div>
@@ -435,11 +438,12 @@
                     </div>
                 </section>
                 <!-- END -->
-				
-				<!-- DEPLOYMENT APP -->
-                <section class="row" id="deploy">
-                    <div class="col-lg-10">
-                        <h1>Deployment</h1>
+              
+              
+				<!-- BUILD APP -->
+                <section class="row" id="build">
+                  <div class="col-lg-10">
+                        <h1>Build App</h1>
                         <hr />
                         <h4>Build project</h4>
 						<ul>
@@ -464,12 +468,54 @@
                         <br />
                         <hr />
                         <br />
-                        <h4>Run app in background process</h4>
-                        <p>
-                          If you want run it in background you may try PM2 <a href="pm2.keymetrics.io">pm2.keymetrics.io</a> and <a href="https://www.npmjs.com/package/pm2" target="_blank">https://www.npmjs.com/package/pm2</a>.
-                          PM2 is a daemon process manager that will help you manage and keep your application online 24/7
-                        </p>
                         <br />
+                        <h4>Build Static HTML</h4>
+                        <p>Run the following commands:</p>
+                        <pre>
+<code class="language-js">npm run build</code>
+                        </pre>
+                        <p>Then</p>
+                        <pre>
+ <code class="language-js">npm run export</code>
+                        </pre>
+                        <p>
+                          Now you can see the exported HTML content on a directory called out inside your project.
+
+That's a fully functioning static web app. You can deploy it to any static hosting service, and it will work fine. But before we do that, we need to test it out locally.
+
+In order to test the app, install the following <a target="_blank" rel="noopener noreferrer" href="https://www.npmjs.com/package/serve">serve NPM module </a> globally:
+                        </p>
+                        <pre>
+<code class="language-js">npm install -g serve</code>
+                        </pre>
+                        <p>After you've installed serve, run following commands from <code>/out</code> directory</p>
+                        <pre>
+<code class="language-js">serve -p 8080</code>
+                        </pre>
+                        <p>
+                          Now you can access your static app in http://localhost:8080. Everything should be working as usual.
+                        </p>
+                    </div>
+                </section>
+                <!-- END -->
+              
+              
+				<!-- DEPLOYMENT APP -->
+                <section class="row" id="deploy">
+                    <div class="col-lg-10">
+                        <h1>Deployment</h1>
+                        <hr />
+                        <h4>Deploy to server</h4>
+                        <ul>
+                          <li>First you have to clone/copy the project in your hosting/cloud server.</li>
+                          <li>If you haven't install the dependencies before, please run <code>npm install</code></li>
+                          <li>Then run <code>npm run build</code></li>
+                          <li>
+                            <strong>Run app in background process</strong>
+                            <p>
+                              To run it in background you may try PM2 <a href="pm2.keymetrics.io">pm2.keymetrics.io</a> and <a href="https://www.npmjs.com/package/pm2" target="_blank">https://www.npmjs.com/package/pm2</a>.
+                              PM2 is a daemon process manager that will help you manage and keep your application online 24/7
+                            </p>
                             <ul>
                               <li>
                                 Install the pm2 globally
@@ -520,6 +566,18 @@ module.exports = {
                               </li>
                               <li>Then navigate to <a href="http://localhost:3001" target="_blank">http://localhost:3001</a></li>
                             </ul>
+                          </li>
+                        </ul>
+                        <br />
+                        <hr />
+                        <br />
+                        <h4>Deploy to NOW</h4>
+                        <p>Deploy your website quickly, without having to manually configure DNS, SSL, CDN or hosting. Integrate with your favorite tools, and bring your entire team of developers and designers closer together.</p>
+                        <ul>
+                          <li>Go to your projects, then <code>npm run now-build</code>. The static HTML will be generated in <code>dist/</code> folder</li>
+                          <li>Next just run <code>now --prod</code> to delploy.</li>
+                          <li>Wait until process finish. Once finish you will get live url yo access it.</li>
+                        </ul>
                     </div>
                 </section>
                 <!-- END -->
@@ -1329,6 +1387,127 @@ import BatteryStd from '@material-ui/icons/BatteryStd';
                                 <tr>
                                   <td>
                                       Luxiren released
+                                  </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-striped log">
+                            <thead>
+                              <tr>
+                                <th colspan="2">
+                                    <strong>Version 1.1 – 3 Feb, 2020</strong>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                  <td>
+                                      Feature: Added script and configuration for deployment to NOW
+                                  </td>
+                                  <td>
+                                      Changes: [all-theme]/package.json
+                                      <br />
+                                      [all-theme]/now.json
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Feature: Added script to generate static HTML
+                                  </td>
+                                  <td>
+                                      Changes: [all-theme]/package.json
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Feature: Agency theme added popup image preview for case study
+                                  </td>
+                                  <td>
+                                      Changes: agency-theme/components/CaseStudies/CaseStudies.js
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Fixed: missing theme palette
+                                  </td>
+                                  <td>
+                                      Changes: [all-theme]/theme/palette.js
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Fixed: Mobile Theme Showcase Carousel
+                                  </td>
+                                  <td>
+                                      Changes: mobile-apps-theme/components/Showchase/Showcase.js
+                                      <br />
+                                      mobile-apps-theme/components/Showchase/showcase-style.js
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Fixed: Crypto Theme footer background
+                                  </td>
+                                  <td>
+                                      Changes: crypto-theme/components/Footer/footer-style.js
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Fixed: Saas Theme wrong navigation link
+                                  </td>
+                                  <td>
+                                      Changes: saas-theme/components/Header/Header.js
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Fixed: Hosting Theme domain selection no working
+                                  </td>
+                                  <td>
+                                      Changes: hosting-theme/components/Banner/Banner.js
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Fixed: Hosting Theme domain selection no working
+                                  </td>
+                                  <td>
+                                      Changes: hosting-theme/components/Banner/Banner.js
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Fixed: Architect Theme cannot click button read more for project card
+                                  </td>
+                                  <td>
+                                      Changes: architect-theme/components/Project/Project.js
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Fixed: Architect Theme cannot click button read more for project card
+                                  </td>
+                                  <td>
+                                      Changes: architect-theme/components/Project/Project.js
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Fixed: Agency Theme services carousel cannot go to previous
+                                  </td>
+                                  <td>
+                                      Changes: agency-theme/components/Services/Services.js
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      Fixed: Responsive Error Page
+                                  </td>
+                                  <td>
+                                      Changes: [all-theme]/components/Error/Error.js
+                                      <br />
+                                      [all-theme]/components/Error/error-style.js
                                   </td>
                                 </tr>
                             </tbody>
