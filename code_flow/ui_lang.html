@@ -261,7 +261,16 @@ state = {
                           </li>
                           <li>You can check the available local code here <a href="https://www.loc.gov/standards/iso639-2/php/code_list.php" target="_blank">https://www.loc.gov/standards/iso639-2/php/code_list.php</a></li>
                           <li>This template uses <strong>ISO 639-2 Code</strong>, see in first column in table</li>
-                          <li>Then register it in <code>/i18n.js</code></li>
+                          <li>
+                            Then register it in <code>/i18n.js</code>. Example for Deutsch.
+                            <pre>
+<code class="language-js">otherLanguages: ['deu'],
+localeSubpaths: {
+    deu: 'de',
+    eng: 'en'
+},</code>
+                            </pre>
+                          </li>
                           <li>
                             Declaring namespace dependencies in <code>_document.js</code>
                             <pre>
