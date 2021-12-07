@@ -238,7 +238,7 @@ state = {
                         </h5>
                         <ol>
                           <li>Open <code>/i18n.js</code></li>
-                          <li>change <code>defaultLanguage: 'en'</code> to other initial locale i.e. <code>id</code> for Bahasa Indonesia</li>
+                          <li>change <code>defaultLanguage: 'eng'</code> to other initial locale i.e. <code>ind</code> for Bahasa Indonesia</li>
                         </ol>
                       </li>
                       <li>
@@ -247,23 +247,27 @@ state = {
                         </h5>
                         <ol>
                           <li>
-                            By default, next-i18next expects your translations to be organised as such by create new language JSON library in <code>/static/locales/[localCode]/</code>
+                            By default, next-i18next expects your translations to be organised as such by create new language JSON library in <code>/public/locales/[localCode]/</code>
                             <pre>
 └── static
     └── locales
-        ├── en
+        ├── eng
         |   └── common.json
-        └── de
+        |   └── theme-landing.json
+        └── deu
             └── common.json
+            └── theme-landing.json
                             </pre>
                           </li>
-                          <li>You can check the available local code here <a href="https://github.com/ladjs/i18n-locales" target="_blank">https://github.com/ladjs/i18n-locales</a></li>
+                          <li>You can check the available local code here <a href="https://www.loc.gov/standards/iso639-2/php/code_list.php" target="_blank">https://www.loc.gov/standards/iso639-2/php/code_list.php</a></li>
+                          <li>This template uses <strong>ISO 639-2 Code</strong>, see in first column in table</li>
                           <li>Then register it in <code>/i18n.js</code></li>
                           <li>
                             Declaring namespace dependencies in <code>_document.js</code>
                             <pre>
                               <code class="language-js">
 MyDocument.getInitialProps = async ctx => {
+  // ...rest code
   return {
     namespacesRequired: ['common', 'landing-theme'],
   }
@@ -284,7 +288,7 @@ MyDocument.getInitialProps = async ctx => {
                                 <pre>
                                   <code class="language-js">
 Landing.getInitialProps = async () => ({
-  namespacesRequired: ['common', 'landing-theme'],
+  namespacesRequired: ['common', 'theme-landing'],
 })
                                   </code>
                                 </pre>
@@ -313,12 +317,20 @@ t: PropTypes.func.isRequired
 &lt;Typography&gt;
                                   </code>
                                 </pre>
+                                Or if you put all translations in common.json
+                                <pre>
+                                  <code class="language-js">
+&lt;Typography component="p"&gt;
+  {t('common:landing-theme.footer_counter')}
+&lt;Typography&gt;
+                                  </code>
+                                </pre>
                               </li>
                               <li>
                                 The last step, wrap the component with <code>withTranslation</code>, then open your translated page.
                                 <pre>
                                   <code class="language-js">
-export default withTranslation(['landing-theme'])(Counter);
+export default withTranslation(['landing-theme'])(YourCompnent);
                                   </code>
                                 </pre>
                               </li>
