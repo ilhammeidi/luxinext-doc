@@ -115,14 +115,14 @@
                         <h1 class="title">Thank you for Purchasing </h1>
                         <br /><br />
                         <h3>Luxiren - React JS Landing Page Collection</h3>
-                        <h4>Version 2.3.2</h4>
+                        <h4>Version 2.3.3</h4>
                         <hr />
                         <ul>
                             <li>
                                 Created : 19 Nov 2019
                             </li>
                             <li>
-                                Latest Update : 20 Aug 2021
+                                Latest Update : 26 Dec 2021
                             </li>
                         </ul>
                     </div>
@@ -793,15 +793,15 @@ project-theme
                             </tr>
                             <tr>
                               <td>Images</td>
-                              <td><strong>~/static/images</strong></td>
-                              <td>static/images</td>
-                              <td><code>import imgAPI from '~/static/images/imgAPI';</code></td>
+                              <td><strong>~/public/images</strong></td>
+                              <td>public/images</td>
+                              <td><code>import imgAPI from '~/public/images/imgAPI';</code></td>
                             </tr>
                             <tr>
                               <td>Dummy text and link</td>
-                              <td><strong>~/static/text</strong></td>
-                              <td>static/text</td>
-                              <td><code>import brand from '~/static/text/brand';</code></td>
+                              <td><strong>~/public/text</strong></td>
+                              <td>public/text</td>
+                              <td><code>import brand from '~/public/text/brand';</code></td>
                             </tr>
                             <tr>
                               <td>Component Style Overider</td>
@@ -1048,18 +1048,12 @@ module.exports = withImages(
     },
     webpack: (config, options) => {
       cssModules: true,
-      //      config.module.rules.push({
-      //          enforce: 'pre',
-      //          test: /\.js?$/,
-      //          exclude: [/node_modules/],
-      //          loader: 'eslint-loader',
-      //          options: {
-      //            quiet: true,
-      //          }
-      //      });
-      config.node = {
-        fs: 'empty'
-      }
+      config.plugins.push(
+      //      new ESLintPlugin({
+      //        exclude: ['node_modules']
+      //      })
+      );
+      config.node = {}
       return config;
     },
   })
@@ -1079,18 +1073,12 @@ module.exports = withImages(
     },
     webpack: (config, options) => {
       cssModules: true,
-      config.module.rules.push({
-         enforce: 'pre',
-         test: /\.js?$/,
-         exclude: [/node_modules/],
-         loader: 'eslint-loader',
-         options: {
-           quiet: true,
-         }
-      });
-      config.node = {
-        fs: 'empty'
-      }
+      config.plugins.push(
+        new ESLintPlugin({
+          exclude: ['node_modules']
+        })
+      );
+      config.node = {}
       return config;
     },
   })
@@ -1375,6 +1363,47 @@ import BatteryStd from '@material-ui/icons/BatteryStd';
                     <div class="col-lg-10">
                         <h1>Change Log</h1>
                         <hr />
+                        <table class="table table-striped log">
+                            <thead>
+                              <tr>
+                                <th>
+                                    <strong>Version 2.3.3 – 26 Dec, 2021</strong>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                    Updated dependecies: react 17.0.2, next 11.0.1, eslint 7.32.0
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    File changes <br />
+                                    - /packages/[theme-name]/package.json <br />
+                                    - /packages/[theme-name]/next.config.js <br />
+                                    - /packages/[theme-name]/.eslintrc <br />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Chore: Change react-wow with react-animated-slider
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    File changes <br />
+                                    - /packages/[theme-name]/package.json <br />
+                                    - /packages/[theme-name]/components/*js <br />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Docs: Update setup language and eslint
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
                         <table class="table table-striped log">
                             <thead>
                               <tr>
