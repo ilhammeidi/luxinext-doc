@@ -115,14 +115,14 @@
                         <h1 class="title">Thank you for Purchasing </h1>
                         <br /><br />
                         <h3>Luxiren - React JS Landing Page and Portfolio Collection</h3>
-                        <h4>Version 3.0.0</h4>
+                        <h4>Version 3.1.0</h4>
                         <hr />
                         <ul>
                             <li>
                                 Created : 19 Nov 2019
                             </li>
                             <li>
-                                Latest Update : 12 May 2022
+                                Latest Update : 8 Sep 2022
                             </li>
                         </ul>
                     </div>
@@ -619,11 +619,13 @@ module.exports = {
                         <br />
                         <hr />
                         <br />
-                        <h4>Deploy to NOW</h4>
+                        <h4>Deploy to Vercel</h4>
                         <p>Deploy your website quickly, without having to manually configure DNS, SSL, CDN or hosting. Integrate with your favorite tools, and bring your entire team of developers and designers closer together.</p>
                         <ul>
                           <li>Go to your projects, then <code>npm run now-build</code>. The static HTML will be generated in <code>dist/</code> folder</li>
-                          <li>Next just run <code>now --prod</code> to delploy.</li>
+                          <li>Next in console go to dist/ folder with <code>cd dist</code> </li>
+                          <li>Then just run <code>vercel</code> to delploy.</li>
+                          <li>Choose some vercel optional config, like scope, project name, etc. Or you can just hit enter and enter for just default option. </li> 
                           <li>Wait until process finish. Once finish you will get live url yo access it.</li>
                         </ul>
                     </div>
@@ -976,23 +978,38 @@ project-theme
                         <h1>Create New Page</h1>
                         <hr />
                         <ul>
-                            <li>In example we want to create an "About" page by adding the following content to <code>pages/about.js:</code></li>
+                            <li><div class="alert alert-warning">This template support translation with Static Site Generation (SSG). If you want to make a page with translation support, please follow this pattern. <br /> <br />About more about static site translation check out <a href="https://locize.com/blog/next-i18n-static/" target="_blank" rel="nofollow">this blog post</a> and <a href="https://github.com/i18next/next-i18next/tree/master/examples/ssg" target="_blank">this example project</a>.</div> </li>
+                            <li> For example we want to create an "About" page by adding the following content to <code>pages/about.js</code> and <code>pages/[locale]/about.js</code>. </li>
                             <li>
-                              <pre><code class="language-js">
+                            <pre><code class="language-js">// pages/about.js
+// Use for redirection by following language param [locale]. It will redirect to pages/[locale]/about.js
+
+import { Redirect } from '../lib/redirect';
+export default Redirect;
+                              
+                                                            </code></pre>
+                              <pre><code class="language-js">// pages/[locale]/about.js
+// It's a real page containing translations or components with translations
+
+import React from 'react';
+import { useTranslation } from 'next-i18next';
+import { getStaticPaths, makeStaticProps } from '../../lib/getStatic';                                
+
 export default function About() {
+  const { t } = useTranslation('common');
   return (
     &lt;div&gt;
       &lt;p&gt;This is the about page&lt;/p&gt;
-     &lt;/div&gt;
+      &lt;p&gt;{t('title')}&lt;/p&gt;
+    &lt;/div&gt;
   );
 }
 
-Login.getInitialProps = async () => ({
-  namespacesRequired: ['common'], // required for translation
-});
+const getStaticProps = makeStaticProps(['common']);
+export { getStaticPaths, getStaticProps };
                               </code></pre>
                             </li>
-                            <li>Then we can access that page with http://localhost:3000/about.</li>
+                            <li>Then we can access that page with <a href="http://localhost:3000/about">http://localhost:3000/about</a> or <a href="http://localhost:3000/en/about">http://localhost:3000/en/about</a></li>
                         </ul>
                         <br />
                         <br />
@@ -1027,28 +1044,29 @@ export default SampleComponent;
 
 </code></pre>
                             </li>
-                            <li>Open a <b>target page</b> where you want use it. Ex: Open <code>/pages/about.js</code>. <em>(Example page that we've made in previous section)</em></li>
+                            <li>Open a <b>target page</b> where you want use it. Ex: Open <code>/pages/[locale]/about.js</code>. <em>(Example page that we've made in previous section)</em></li>
                             <li>
                               Import component form component library<br />
                               <pre><code class="language-js">import SampleComponent from '~/components/MyComponent/SampleComponent.js'</code></pre>
                             </li>
                             <li>
                               Then use it inside render function<br />
-                              <pre><code class="language-js">render() {
-  return (
-    &lt;SampleComponent /&gt;
-  );
-}
+                              <pre><code class="language-js">return (
+  &lt;SampleComponent /&gt;
+);
                             </code></pre>
                                 </li>
                                 <li>
                                   Here's complete code <br />
-                                  <pre><code class="language-js">// file: app/containers/MyPage/SamplePage.js
+                                  <pre><code class="language-js">// file: /pages/[locale]/about.js
 import React from 'react';
 import Head from 'next/head';
+import { useTranslation } from 'next-i18next';
+import { getStaticPaths, makeStaticProps } from '../../lib/getStatic'; 
 import SampleComponent from '~/components/MyComponent/SampleComponent.js'
 
 export default function About() {
+  const { t } = useTranslation('common');
   return (
     &lt;div&gt;
       &lt;Head&gt;
@@ -1057,16 +1075,19 @@ export default function About() {
           &amp;nbsp; - Blank page
         &lt;/title&gt;
       &lt;/Head&gt;
+      &lt;p&gt;This is the about page&lt;/p&gt;
+      &lt;p&gt;{t('title')}&lt;/p&gt;
       &lt;SampleComponent /&gt;
     &lt;/div&gt;
   );
 }
 
-export default About;
+const getStaticProps = makeStaticProps(['common']);
+export { getStaticPaths, getStaticProps };
 
 </code></pre>
                                 </li>
-                                <li>Then you can check the result at <a href="http://localhost:3000/about">http://localhost:3000/about</a></li>
+                                <li>Then you can check the result at <a href="http://localhost:3000/about">http://localhost:3000/about</a> or <a href="http://localhost:3000/en/about">http://localhost:3000/en/about</a></li>
                         </ul>
                     </div>
                 </section>
@@ -1411,6 +1432,67 @@ import BatteryStd from '@material-ui/icons/BatteryStd';
                     <div class="col-lg-10">
                         <h1>Change Log</h1>
                         <hr />
+                        <table class="table table-striped log">
+                            <thead>
+                              <tr>
+                                <th>
+                                    <strong>Version 3.1 – 8 Sept, 2022</strong>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                    Upgrade translation with SSG support
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Files added/changes <br />
+                                    - packages/[theme-name]/i18n.js <br />
+                                    - packages/[theme-name]/index.js <br />
+                                    - packages/[theme-name]/lib/ <br />
+                                    - packages/[theme-name]/next-i18next.config.js <br />
+                                    - packages/[theme-name]/next.config.js <br />
+                                    - packages/[theme-name]/public/locales/ <br />
+                                    - packages/[theme-name]/pages/_app.js <br />
+                                    - packages/[theme-name]/pages/_document.js <br />
+                                    - packages/[theme-name]/pages/*.js <br />
+                                    - packages/[theme-name]/pages/[locale]/ <br />
+                                    - packages/[theme-name]/components/ <br />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Fixed detail movie icon in Movie Theme
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Files added/changes <br />
+                                    - packages/movie-theme/pages/movie-detail.js <br />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Update dependencie google maps
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Files added/changes <br />
+                                    - packages/agency/package.json <br />
+                                    - packages/architect/package.json <br />
+                                    - packages/medical/package.json <br />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Update documentation
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
                         <table class="table table-striped log">
                             <thead>
                               <tr>

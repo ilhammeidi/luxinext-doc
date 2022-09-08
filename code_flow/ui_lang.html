@@ -237,8 +237,8 @@ state = {
                           To set default language
                         </h5>
                         <ol>
-                          <li>Open <code>/i18n.js</code></li>
-                          <li>change <code>defaultLanguage: 'eng'</code> to other initial locale i.e. <code>ind</code> for Bahasa Indonesia</li>
+                          <li>Open <code>next-i18next.config.js</code></li>
+                          <li>change <code>defaultLocale: 'en'</code> to other initial locale i.e. <code>defaultLocale: 'id'</code> for Bahasa Indonesia</li>
                         </ol>
                       </li>
                       <li>
@@ -247,42 +247,23 @@ state = {
                         </h5>
                         <ol>
                           <li>
-                            By default, next-i18next expects your translations to be organised as such by create new language JSON library in <code>/public/locales/[localCode]/</code>
+                            By default, next-i18next expects your translations to be organised as such by create new language JSON library in <code>/public/locales/[localCode]/</code>. Please create your language preference here and put every your translation text these JSON files:<br /><br />
                             <pre>
 └── public
     └── locales
-        ├── eng
+        ├── en
         |   └── common.json
-        |   └── theme-landing.json
-        └── deu
+        └── de
             └── common.json
-            └── theme-landing.json
                             </pre>
                           </li>
                           <li>You can check the available local code here <a href="https://www.loc.gov/standards/iso639-2/php/code_list.php" target="_blank">https://www.loc.gov/standards/iso639-2/php/code_list.php</a></li>
-                          <li>This template uses <strong>ISO 639-2 Code</strong>, see in first column in table</li>
+                          <li>This template uses <strong>ISO 639-2 Code</strong>, see in second column in table</li>
                           <li>
-                            Then register it in <code>/i18n.js</code>. Example for Deutsch.
+                            Then register it in <code>/next-i18next.config.js</code>. Example for English and Deutsch.
                             <pre>
-<code class="language-js">otherLanguages: ['deu'],
-localeSubpaths: {
-    deu: 'de',
-    eng: 'en'
-},</code>
-                            </pre>
-                          </li>
-                          <li>
-                            Declaring namespace dependencies in <code>_document.js</code>
-                            <pre>
-                              <code class="language-js">
-MyDocument.getInitialProps = async ctx => {
-  // ...rest code
-  return {
-    namespacesRequired: ['common', 'landing-theme'],
-  }
-})
-                              </code>
-                            </pre>
+<code class="language-js">locales: ['en', 'de']</code>
+                            </pre><br /><br />
                           </li>
                         </ol>
                       </li>
@@ -291,58 +272,110 @@ MyDocument.getInitialProps = async ctx => {
                               Put the messages to the React Components
                             </h5>
                             <ol>
-                              <li>Choose page that one to be translated, i.e <code>/pages/index.js</code></li>
-                              <li>
-                                Then add namespace dependencies
-                                <pre>
-                                  <code class="language-js">
-Landing.getInitialProps = async () => ({
-  namespacesRequired: ['common', 'theme-landing'],
-})
-                                  </code>
-                                </pre>
+                              <li>Create new page <code>pages/about.js</code> and <code>pages/[locale]/about.js</code> <pre><code class="language-js">// pages/about.js
+// Use for redirection by following language param [locale]. It will redirect to pages/[locale]/about.js
+
+import { Redirect } from '../lib/redirect';
+export default Redirect;
+                              
+                                                            </code></pre>
+                              <pre><code class="language-js">// pages/[locale]/about.js
+// It's a real page containing translations or components with translations
+// You can translate directly in a page with {t('title')}
+
+import React from 'react';
+import { useTranslation } from 'next-i18next';
+import { getStaticPaths, makeStaticProps } from '../../lib/getStatic';                                
+
+export default function About() {
+  const { t } = useTranslation('common');
+  return (
+    &lt;div&gt;
+      &lt;p&gt;This is the about page&lt;/p&gt;
+      &lt;p&gt;{t('title')}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+const getStaticProps = makeStaticProps(['common']);
+export { getStaticPaths, getStaticProps };
+                              </code></pre>
                               </li>
                               <li>Pick one of sample <strong>Components</strong> with cointaining text</li>
-                              <li>Import withTranslation <br />
+                              <li>Use translation hook from  <strong>next-i18next</strong><br />
                                  <pre><code class="language-js">
-import { withTranslation } from '~/i18n';                              
-                                 </code></pre>
-                              </li>
-                              <li>Basically the message value is <strong>String</strong>. And next step is replace/add every string in components</li>
-                              <li>
-                                Register <code>t</code> function to props
-                                <pre>
-                                  <code class="language-js">
-t: PropTypes.func.isRequired
-                                  </code>
-                                </pre>
-                              </li>
+import { useTranslation } from 'next-i18next';                           
+                                 </code> </pre> and use the <code> t </code> function <pre><code class="language-js">
+const { t } = useTranslation('common');                      
+                                 </code> </pre>
+                              Basically the message value is <strong>String</strong>. And next step is replace/add every string in components</li>
                               <li>
                                 Add messages inside components <br />
                                 <pre>
                                   <code class="language-js">
-&lt;Typography component="p"&gt;
+&lt;h3&gt;
   {t('landing-theme:footer_counter')}
-&lt;Typography&gt;
+&lt;h3&gt;
                                   </code>
                                 </pre>
                                 Or if you put all translations in common.json
                                 <pre>
                                   <code class="language-js">
-&lt;Typography component="p"&gt;
-  {t('common:landing-theme.footer_counter')}
-&lt;Typography&gt;
+&lt;h3&gt;
+  {t('footer_counter')}
+&lt;h3&gt;
                                   </code>
                                 </pre>
                               </li>
+                              <li>Full code of example component <pre><code class="language-js">// file: /components/MyComponent/SampleComponent.js
+
+import React from 'react';
+import { useTranslation } from 'next-i18next'; 
+
+function SampleComponent(){
+  const { t } = useTranslation('common');
+  return (
+    &lt;h3&gt;
+      {t('footer_counter')}
+    &lt;h3&gt;
+  );
+}
+
+export default SampleComponent;
+
+</code></pre></li>
                               <li>
-                                The last step, wrap the component with <code>withTranslation</code>, then open your translated page.
-                                <pre>
-                                  <code class="language-js">
-export default withTranslation(['landing-theme'])(YourCompnent);
-                                  </code>
-                                </pre>
+                                The last step, import the component to page <code>pages/[locale]/about.js</code>
+<pre><code class="language-js">// file: /pages/[locale]/about.js
+import React from 'react';
+import Head from 'next/head';
+import { useTranslation } from 'next-i18next';
+import { getStaticPaths, makeStaticProps } from '../../lib/getStatic'; 
+import SampleComponent from '~/components/MyComponent/SampleComponent.js'
+
+export default function About() {
+  const { t } = useTranslation('common');
+  return (
+    &lt;div&gt;
+      &lt;Head&gt;
+        &lt;title&gt;
+          { brand.crypto.name }
+          &amp;nbsp; - Blank page
+        &lt;/title&gt;
+      &lt;/Head&gt;
+      &lt;p&gt;This is the about page&lt;/p&gt;
+      &lt;p&gt;{t('title')}&lt;/p&gt;
+      &lt;SampleComponent /&gt;
+    &lt;/div&gt;
+  );
+}
+
+const getStaticProps = makeStaticProps(['common']);
+export { getStaticPaths, getStaticProps };
+
+                                </code></pre>
                               </li>
+                              <li>Then you can check the result at <a href="http://localhost:3000/about">http://localhost:3000/about</a> or <a href="http://localhost:3000/en/about">http://localhost:3000/en/about</a></li>
                             </ol>
                           </li>
                     </ul>
