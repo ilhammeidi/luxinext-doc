@@ -115,14 +115,14 @@
                         <h1 class="title">Thank you for Purchasing </h1>
                         <br /><br />
                         <h3>Luxiren - React JS Landing Page and Portfolio Collection</h3>
-                        <h4>Version 3.1.0</h4>
+                        <h4>Version 3.2.0</h4>
                         <hr />
                         <ul>
                             <li>
                                 Created : 19 Nov 2019
                             </li>
                             <li>
-                                Latest Update : 8 Sep 2022
+                                Latest Update : 12 Nov 2022
                             </li>
                         </ul>
                     </div>
@@ -640,6 +640,82 @@ module.exports = {
                         <p>Here's most common error problem when installation and first setup project</p>
                         <div class="accordion" id="accordionExample">
                           <div class="card">
+                            <div class="card-header" id="headingDeprecated">
+                              <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseDeprecated" aria-expanded="false" aria-controls="collapseOne">
+                                  Installation Problem: Dependencies Warning Deprecation
+                                </button>
+                              </h5>
+                            </div>
+
+                            <div id="collapseDeprecated" class="show collapse" aria-labelledby="headingOne" data-parent="#accordionExample" style="">
+                              <div class="card-body">
+                                <ul>
+                                  <li>
+                                      When installation and you got error like this :<br>
+                                      <pre class=" language-js"><code class=" language-js">
+Could not resolve dependency<span class="token punctuation">:</span>
+peer example<span class="token operator">-</span>peer<span class="token operator">-</span><span class="token keyword">package</span>@<span class="token string">"^3.2.0"</span> <span class="token keyword">from</span> example<span class="token operator">-</span><span class="token keyword">package</span>@<span class="token number">3.0</span><span class="token number">.0</span>
+example<span class="token operator">-</span><span class="token keyword">package</span>@<span class="token number">3.0</span><span class="token number">.0</span> <span class="token keyword">from</span> the root project
+        </code></pre>
+                                    </li>
+                                    <li>
+                                      Try to remove the error package (i.e example-package@3.0.0) from <code>package.json</code> Then install again. 
+                                      <pre class=" language-js"><code class=" language-js">npm install</code></pre>
+                                      After installation done, try to install the problematic package manually with <code>--legacy-peer-deps</code> options. 
+                                      <pre class=" language-js"><code class=" language-js">npm install example<span class="token operator">-</span><span class="token keyword">package</span>@<span class="token number">3.0</span><span class="token number">.0</span> <span class="token operator">--</span>legacy<span class="token operator">-</span>peer<span class="token operator">-</span>deps</code></pre>
+                                      Example for multiple package
+                                      <pre class=" language-js"><code class=" language-js">npm install example<span class="token operator">-</span><span class="token keyword">package</span>@<span class="token number">3.0</span><span class="token number">.0</span> other<span class="token operator">-</span><span class="token keyword">package</span>@<span class="token number">1.0</span><span class="token number">.0</span> <span class="token operator">--</span>legacy<span class="token operator">-</span>peer<span class="token operator">-</span>deps</code></pre>
+                                    </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <div class="card-header" id="headingNode18">
+                              <h5 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseNode18" aria-expanded="true" aria-controls="collapseOne">
+                                  Running Problem: Node Version &gt;= 18
+                                </button>
+                              </h5>
+                            </div>
+
+                            <div id="collapseNode18" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample" style="">
+                              <div class="card-body">
+                                <ul>
+                                  <li>
+                                      When you run npm run dev, build, etc, then you got error like this :br /&gt;
+                                      <pre class=" language-js"><code class=" language-js">
+Error<span class="token punctuation">:</span> error<span class="token punctuation">:</span><span class="token number">0308010</span>C<span class="token punctuation">:</span>digital envelope routines<span class="token punctuation">:</span><span class="token punctuation">:</span>unsupported
+    at <span class="token keyword">new</span> <span class="token class-name">Hash</span> <span class="token punctuation">(</span>node<span class="token punctuation">:</span>internal<span class="token operator">/</span>crypto<span class="token operator">/</span>hash<span class="token punctuation">:</span><span class="token number">67</span><span class="token punctuation">:</span><span class="token number">19</span><span class="token punctuation">)</span>
+    at Object<span class="token punctuation">.</span><span class="token function">createHash</span> <span class="token punctuation">(</span>node<span class="token punctuation">:</span>crypto<span class="token punctuation">:</span><span class="token number">130</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">)</span>
+        </code></pre>
+                                    </li>
+                                    <li>
+                                      Open terminal and paste these as described:
+                                      <ol>
+                                        <li>
+                                          Linux and macOS (Windows Git Bash)
+                                          <pre class=" language-js"><code class=" language-js"><span class="token keyword">export</span> <span class="token constant">NODE_OPTIONS</span><span class="token operator">=</span><span class="token operator">--</span>openssl<span class="token operator">-</span>legacy<span class="token operator">-</span>provider</code></pre>
+                                        </li>
+                                        <li>
+                                          Windows command prompt
+                                          <pre class=" language-js"><code class=" language-js"><span class="token keyword">set</span> <span class="token constant">NODE_OPTIONS</span><span class="token operator">=</span><span class="token operator">--</span>openssl<span class="token operator">-</span>legacy<span class="token operator">-</span>provider</code></pre>
+                                        </li>
+                                        <li>
+                                          Windows PowerShell
+                                          <pre class=" language-js"><code class=" language-js">$env<span class="token punctuation">:</span><span class="token constant">NODE_OPTIONS</span> <span class="token operator">=</span> <span class="token string">"--openssl-legacy-provider"</span></code></pre>
+                                        </li>
+                                      </ol>
+                                    </li>
+                                    <li>
+                                      Then try <code>npm run dev</code> or <code>npm run build</code> again
+                                    </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card">
                             <div class="card-header" id="headingOne">
                               <h5 class="mb-0">
                                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -648,7 +724,7 @@ module.exports = {
                               </h5>
                             </div>
 
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                               <div class="card-body">
                                 <ul>
                                   <li>
@@ -977,9 +1053,10 @@ project-theme
                     <div class="col-lg-12">
                         <h1>Create New Page</h1>
                         <hr />
+                        <h3>A. Page with SSG(Static Site Generation) support</h3>
                         <ul>
                             <li><div class="alert alert-warning">This template support translation with Static Site Generation (SSG). If you want to make a page with translation support, please follow this pattern. <br /> <br />About more about static site translation check out <a href="https://locize.com/blog/next-i18n-static/" target="_blank" rel="nofollow">this blog post</a> and <a href="https://github.com/i18next/next-i18next/tree/master/examples/ssg" target="_blank">this example project</a>.</div> </li>
-                            <li> For example we want to create an "About" page by adding the following content to <code>pages/about.js</code> and <code>pages/[locale]/about.js</code>. </li>
+                            <li> For example we want to create an "About" page, you need to create to 2 files <code>pages/about.js</code> and <code>pages/[locale]/about.js</code>. </li>
                             <li>
                             <pre><code class="language-js">// pages/about.js
 // Use for redirection by following language param [locale]. It will redirect to pages/[locale]/about.js
@@ -1013,6 +1090,98 @@ export { getStaticPaths, getStaticProps };
                         </ul>
                         <br />
                         <br />
+                        <h3>B. Page with Server Side Translation</h3>
+                        <ul>
+                            <li>
+                              <div class="alert alert-warning">
+                                By default this template uses SSG method for translation, but it can be used as Server Side Rendering. Please follow this guide to convert as a Server Side Translation Page.
+                              </div>
+                            </li>
+                            <li>
+                              Setup the configuration
+                              <ol>
+                                <li>In <code>/next-i18next.config.js</code> set <code>ssg: false</code></li>
+                                <li>
+                                  In <code>next.config.js</code> uncomment <code>const { i18n } = require('./next-i18next.config')</code> and <code>i18n,</code>
+                                  It will look like this:
+                                  <pre><code class="language-js">// /next-i18next.config.js
+
+const { i18n } = require('./next-i18next.config')
+//... rest import
+
+module.exports = withImages({
+  i18n,
+  //... rest code
+});
+                              </code></pre>
+                                </li>
+                                <li>
+                                  In <code>pages/_app.js</code> in <code>useEffect()</code> add/uncomment this code
+                                  <pre><code class="language-js">// /pages/_app.js
+useEffect(() => {
+  const { pathname, asPath, query } = router;
+  router.push({ pathname, query }, asPath, { locale: curLang });
+  // ...rest code
+}, []);
+                              </code></pre>
+                                </li>
+                              </ol>
+                            </li>
+                            <li>
+                              Change the all pages file in <code>/pages</code>
+                              <ol>
+                                <li>Move and replace all files inside <code>pages/[locale]/</code> to it's parent <code>pages/</code>, Then delete the empty<code>[locale]</code> folder.</li>
+                            <li>Open a page file, example <code>index.js</code> in <code>pages/</code> folder.</li>
+                            <li>
+                              Remove the import of static lib and import <code>serverSideTranslations</code>
+                              <pre><code class="language-js">// pages/about.js
+// (-) Remove or disable
+import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
+
+// (+) Add or enable                              
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';                             
+                              </code></pre>
+                            </li>
+                            <li>
+                              Remove the <code>export { getStaticPaths, getStaticProps }</code> and use <code>serverSideTranslations</code>
+                              <pre><code class="language-js">// pages/about.js
+// (-) Remove or disable
+const getStaticProps = makeStaticProps(['common']);
+export { getStaticPaths, getStaticProps };
+
+// (+) Add or enable                              
+export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
+                              </code></pre>
+                            </li>
+                            <li>
+                              Here's the complete code
+                              <pre><code class="language-js">// pages/about.js
+import React from 'react';
+import { useTranslation } from 'next-i18next';
+// import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';                             
+
+export default function Home() {
+  const { t } = useTranslation('common');
+  return (
+    &lt;div&gt;
+      &lt;p&gt;This is the about page&lt;/p&gt;
+      &lt;p&gt;{t('title')}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+// const getStaticProps = makeStaticProps(['common']);
+// export { getStaticPaths, getStaticProps };
+export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
+                              </code></pre>
+                            </li>
+                            <li>Do this method for all pages. For the faster way, you can use find and replace inside <code>pages/</code> with code-editor </li>
+                            <li>Remove <code>.next/</code> folder in root project. This folder might hidden by your OS, so please show it!</li>
+                            <li>Then start the project <code>npm run dev</code> or build <code>npm run dev</code> it to see the result. <em>Please note this method not support for npm run export</em></li>
+                              </ol>
+                            </li>
+                        </ul>
                     </div>
                   <br /><br />
               </section>
@@ -1432,6 +1601,46 @@ import BatteryStd from '@material-ui/icons/BatteryStd';
                     <div class="col-lg-10">
                         <h1>Change Log</h1>
                         <hr />
+                        <table class="table table-striped log">
+                            <thead>
+                              <tr>
+                                <th>
+                                    <strong>Version 3.2 – 12 Nov, 2022</strong>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                    Add simple translation
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Files added/changes <br />
+                                    - packages/[theme-name]/next-i18next.config.js <br />
+                                    - packages/[theme-name]/pages/ <br />
+                                    - packages/[theme-name]/pages/_app.js <br />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Add vercel config file
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Files added/changes <br />
+                                    - packages/[theme-name]/vercel.json <br />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Docs: Update troubleshooting cases
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
                         <table class="table table-striped log">
                             <thead>
                               <tr>
