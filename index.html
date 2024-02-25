@@ -102,7 +102,7 @@
                 </li>
             </ul>
 
-            <span class="copy">&copy; Copyright 2023 - Luxiren</span>
+            <span class="copy">&copy; Copyright 2024 - Luxiren</span>
         </div>
         <!-- /#sidebar-wrapper -->
 
@@ -115,14 +115,14 @@
                         <h1 class="title">Thank you for Purchasing </h1>
                         <br /><br />
                         <h3>Luxiren - React JS Landing Page and Portfolio Collection</h3>
-                        <h4>Version 3.3.4</h4>
+                        <h4>Version 3.4.0</h4>
                         <hr />
                         <ul>
                             <li>
                                 Created : 19 Nov 2019
                             </li>
                             <li>
-                                Latest Update : 25 Sep 2023
+                                Latest Update : 26 Feb 2024
                             </li>
                         </ul>
                     </div>
@@ -500,49 +500,35 @@
                                 First you need to build the production assets first
 								<pre><code class="language-js">npm run build</code></pre>
 								It usually take longer time than development to generate and compress production code.
-								The generated files will be placed in <code>.next/</code>
+								The generated files will be placed in <code>out/</code>
                                 <img src="images/cmd2.png" width="800" alt="process" />
 							</li>
                             <li>
-                                Then start the app
-								<pre><code class="language-js">npm start</code></pre>
-							</li>
-							<li>Then navigate to <a href="http://localhost:3001" target="_blank">http://localhost:3001</a></li>
-                            <li>
-                              Node: In Windows system you need to install <strong>win-node-env</strong>, because setting NODE_ENV=production before command babel doesn't work on Windows.
-                              Here's the packages <a href="https://www.npmjs.com/package/win-node-env" target="_blank">https://www.npmjs.com/package/win-node-env</a>
+                              <p>
+                                Now you can see the exported HTML content on a directory called <code>out/</code> inside your project.
+
+      That's a fully functioning static web app. You can deploy it to any static hosting service, and it will work fine. But before we do that, we need to test it out locally.
+
+      In order to test the app, install the following <a target="_blank" rel="noopener noreferrer" href="https://www.npmjs.com/package/serve">serve NPM module </a> globally:
+                              </p>
+                              <pre>
+      <code class="language-js">cd out</code>
+                              </pre>
+                              <pre>
+      <code class="language-js">npm install -g serve</code>
+                              </pre>
+                              <p>After you've installed serve, run following commands from <code>/out</code> directory</p>
+                              <pre>
+      <code class="language-js">serve -p 1234</code>
+                              </pre>
+                              <p>
+                                Now you can access your static app in <code>http://localhost:1234</code>
+                              </p>
                             </li>
 						</ul>
                         <br />
                         <hr />
                         <br />
-                        <br />
-                        <h4>Build Static HTML</h4>
-                        <p>Run the following commands:</p>
-                        <pre>
-<code class="language-js">npm run build</code>
-                        </pre>
-                        <p>Then</p>
-                        <pre>
- <code class="language-js">npm run export</code>
-                        </pre>
-                        <p>
-                          Now you can see the exported HTML content on a directory called out inside your project.
-
-That's a fully functioning static web app. You can deploy it to any static hosting service, and it will work fine. But before we do that, we need to test it out locally.
-
-In order to test the app, install the following <a target="_blank" rel="noopener noreferrer" href="https://www.npmjs.com/package/serve">serve NPM module </a> globally:
-                        </p>
-                        <pre>
-<code class="language-js">npm install -g serve</code>
-                        </pre>
-                        <p>After you've installed serve, run following commands from <code>/out</code> directory</p>
-                        <pre>
-<code class="language-js">serve -p 8080</code>
-                        </pre>
-                        <p>
-                          Now you can access your static app in http://localhost:8080. Everything should be working as usual.
-                        </p>
                     </div>
                 </section>
                 <!-- END -->
@@ -555,64 +541,81 @@ In order to test the app, install the following <a target="_blank" rel="noopener
                         <hr />
                         <h4>Deploy to server</h4>
                         <ul>
-                          <li>First you have to clone/copy the project in your hosting/cloud server.</li>
-                          <li>If you haven't install the dependencies before, please run <code>npm install</code></li>
-                          <li>Then run <code>npm run build</code></li>
                           <li>
-                            <strong>Run app in background process</strong>
-                            <p>
-                              To run it in background you may try PM2 <a href="pm2.keymetrics.io">pm2.keymetrics.io</a> and <a href="https://www.npmjs.com/package/pm2" target="_blank">https://www.npmjs.com/package/pm2</a>.
-                              PM2 is a daemon process manager that will help you manage and keep your application online 24/7
-                            </p>
+                            <strong>Option 1: Deploy as Static HTML</strong>
                             <ul>
+                              <li>Run <code>npm run build</code></li>
+                              <li>Then you can see the exported HTML content on a directory called <code>out/</code> inside your project.</li>
+                              <li>That's a fully functioning static web app. You can deploy/copy it to your hosting service and access it from your domain or IP</li>
+                            </ul>
+                          </li>
+                          <li>
+                            <strong>Option 2: Use Node.js Server</strong>
+                            <ul>
+                              <li>First you have to clone/copy the project in your hosting/cloud server.</li>
+                              <li>If you haven't install the dependencies before, please run <code>npm install</code></li>
+                              <li>Open <code>next.config.js</code> And Please disable/comment <code>output: 'export'</code></li>
+                              <li>Run <code>npm run build</code></li>
                               <li>
-                                Install the pm2 globally
-                                <pre><code class="language-js">npm install pm2@latest -g</code></pre>
-                              </li>
-                              <li>
-                                Go to project folder i.e <code>packages/agency</code>
-                              </li>
-                              <li>
-                                Create ecosystem file
-                                <pre><code class="language-js">pm2 ecosystem</code></pre>
-                                It will generate <code>ecosystem.config.js</code> in your root project
-                              </li>
-                              <li>
-                                Open <code>ecosystem.config.js</code>.
-                                Then Change the script target to <code>./index.js</code> like this:
-                                <pre>
-                                  <code class="language-js">
-module.exports = {
-  apps : [{
-    name      : 'luxi-react', // Your project name
-    script    : './index.js', // Change the script target to <code>./index.js</code>
-    env: {
-      NODE_ENV: 'development'
-    },
-    env_production : {
-      NODE_ENV: 'production'
-    }
-  }],
+                                <strong>Run app in background process</strong>
+                                <p>
+                                  To run it in background you may try PM2 <a href="pm2.keymetrics.io">pm2.keymetrics.io</a> and <a href="https://www.npmjs.com/package/pm2" target="_blank">https://www.npmjs.com/package/pm2</a>.
+                                  PM2 is a daemon process manager that will help you manage and keep your application online 24/7
+                                </p>
+                                <ul>
+                                  <li>
+                                    Install the pm2 globally
+                                    <pre><code class="language-js">npm install pm2@latest -g</code></pre>
+                                  </li>
+                                  <li>
+                                    Go to project folder i.e <code>packages/agency</code>
+                                  </li>
+                                  <li>
+                                    Create ecosystem file
+                                    <pre><code class="language-js">pm2 ecosystem</code></pre>
+                                    It will generate <code>ecosystem.config.js</code> in your root project
+                                  </li>
+                                  <li>
+                                    Open <code>ecosystem.config.js</code>.
+                                    Then Change the script target to <code>./index.js</code> like this:
+                                    <pre>
+                                      <code class="language-js">
+    module.exports = {
+      apps : [{
+        name      : 'luxi-react', // Your project name
+        exec_mode: 'cluster',
+        instances: 'max', // Or a number of instances
+        script    : './node_modules/next/dist/bin/next',
+        args: 'start',
+        env: {
+          NODE_ENV: 'development'
+        },
+        env_production : {
+          NODE_ENV: 'production'
+        }
+      }],
 
-  deploy : {
-    production : {
-      user : 'node',
-      host : '212.83.163.1',
-      ref  : 'origin/master',
-      repo : 'git@github.com:repo.git',
-      path : '/var/www/production',
-      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
-    }
-  }
-};
-                                  </code>
-                                </pre>
+      deploy : {
+        production : {
+          user : 'node',
+          host : '212.83.163.1',
+          ref  : 'origin/master',
+          repo : 'git@github.com:repo.git',
+          path : '/var/www/production',
+          'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
+        }
+      }
+    };
+                                      </code>
+                                    </pre>
+                                  </li>
+                                  <li>
+                                    Run the project
+                                    <pre><code class="language-js">pm2 start ecosystem.config.js --env production</code></pre>
+                                  </li>
+                                  <li>Please setup the proxy like nginx, apache, etc if necessary, then navigate to <a href="#" target="_blank">yourdomain.com</a></li>
+                                </ul>
                               </li>
-                              <li>
-                                Run the project
-                                <pre><code class="language-js">pm2 start ecosystem.config.js --env production</code></pre>
-                              </li>
-                              <li>Then navigate to <a href="http://localhost:3001" target="_blank">http://localhost:3001</a></li>
                             </ul>
                           </li>
                         </ul>
@@ -622,8 +625,8 @@ module.exports = {
                         <h4>Deploy to Vercel</h4>
                         <p>Deploy your website quickly, without having to manually configure DNS, SSL, CDN or hosting. Integrate with your favorite tools, and bring your entire team of developers and designers closer together.</p>
                         <ul>
-                          <li>Go to your projects, then <code>npm run now-build</code>. The static HTML will be generated in <code>dist/</code> folder</li>
-                          <li>Next in console go to dist/ folder with <code>cd dist</code> </li>
+                          <li>Go to your projects, then <code>npm run build</code>. The static HTML will be generated in <code>out/</code> folder</li>
+                          <li>Next in console go to out/ folder with <code>cd out</code> command </li>
                           <li>Then just run <code>vercel</code> to delploy.</li>
                           <li>Choose some vercel optional config, like scope, project name, etc. Or you can just hit enter and enter for just default option. </li> 
                           <li>Wait until process finish. Once finish you will get live url yo access it.</li>
@@ -1612,6 +1615,51 @@ import BatteryStd from '@material-ui/icons/BatteryStd';
                             <thead>
                               <tr>
                                 <th>
+                                    <strong>Version 3.4.0 – 26 Feb, 2023</strong>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                    Feature: Use next-link for all link navigation
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Files changes: <br />
+                                    - packages/[theme-name]/components/
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Chore: Add MainContainer component for main wrapper
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Files added: <br />
+                                    - packages/[theme-name]/components/MainContainer <br />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Chore: Upgrade to Next 14
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Files added: <br />
+                                    - packages/[theme-name]/package.json <br />
+                                    - packages/[theme-name]/next.config.js <br />
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-striped log">
+                            <thead>
+                              <tr>
+                                <th>
                                     <strong>Version 3.3.4 – 25 Sept, 2023</strong>
                                 </th>
                               </tr>
@@ -1724,28 +1772,6 @@ import BatteryStd from '@material-ui/icons/BatteryStd';
                             <thead>
                               <tr>
                                 <th>
-                                    <strong>Version 3.3.1 – 29 Jan, 2023</strong>
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>
-                                    Fixed: Responsive Issue
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                    Files changes: <br />
-                                    - packages/[all-themes]/components/
-                                </td>
-                              </tr>
-                            </tbody>
-                        </table>
-                        <table class="table table-striped log">
-                            <thead>
-                              <tr>
-                                <th>
                                     <strong>Version 3.3 – 18 Jan, 2023</strong>
                                 </th>
                               </tr>
@@ -1760,28 +1786,6 @@ import BatteryStd from '@material-ui/icons/BatteryStd';
                                 <td>
                                     Files changes: <br />
                                     - packages/[all-themes]
-                                </td>
-                              </tr>
-                            </tbody>
-                        </table>
-                        <table class="table table-striped log">
-                            <thead>
-                              <tr>
-                                <th>
-                                    <strong>Version 3.2.1 – 1 Dec, 2022</strong>
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>
-                                    Add new version for simple translation routing
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                    Files added/changes: <br />
-                                    - luxiren-simple-routing/
                                 </td>
                               </tr>
                             </tbody>
@@ -1909,132 +1913,6 @@ import BatteryStd from '@material-ui/icons/BatteryStd';
                                     - /packages/unisex-theme <br />
                                 </td>
                               </tr>
-                            </tbody>
-                        </table>
-                        <table class="table table-striped log">
-                            <thead>
-                              <tr>
-                                <th>
-                                    <strong>Version 2.3.3 – 26 Dec, 2021</strong>
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>
-                                    Updated dependecies: react 17.0.2, next 11.0.1, eslint 7.32.0
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                    File changes <br />
-                                    - /packages/[theme-name]/package.json <br />
-                                    - /packages/[theme-name]/next.config.js <br />
-                                    - /packages/[theme-name]/.eslintrc <br />
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                    Chore: Change react-wow with react-animated-slider
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                    File changes <br />
-                                    - /packages/[theme-name]/package.json <br />
-                                    - /packages/[theme-name]/components/*js <br />
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                    Docs: Update setup language and eslint
-                                </td>
-                              </tr>
-                            </tbody>
-                        </table>
-                        <table class="table table-striped log">
-                            <thead>
-                              <tr>
-                                <th>
-                                    <strong>Version 2.3.2 – 20 Aug, 2021</strong>
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                  <td>
-                                      Fixed: RTL and Arabic layout issue
-                                  </td>
-                                </tr>
-                                <td>
-                                      File changes <br />
-                                      - /packages/[theme-name]/components/Header/Settings.js <br />
-                                  </td>
-                                <tr>
-                                  <td>
-                                      Fixed: Map infowindows that cannot show
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                      File changes <br />
-                                      - /packages/architect-theme/components/Forms/Contact.js <br />
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                      Update ion-icons
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                      File changes <br />
-                                      - /packages/[theme-name]/components/head.js <br />
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                      Update copyright year
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                      File changes <br />
-                                      - /packages/[theme-name]/public/text/brand.js <br />
-                                  </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table class="table table-striped log">
-                            <thead>
-                              <tr>
-                                <th>
-                                    <strong>Version 2.3.1 – 1 Jun, 2021</strong>
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                  <td>
-                                      Fixed: Deprecated postcss and error build
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                      File changes <br />
-                                      - /packages/[theme-name]/package.json <br />
-                                      - /packages/[theme-name]/next.config.js <br />
-                                      - /packages/[theme-name]/pages/_app.js <br />
-                                      - packages/[theme-name]/components/Header/Header.js <br />
-                                      - packages/agency-theme/components/CaseStudies/CaseStudies.js <br />
-                                      - packages/crypto-theme/components/Promotion/Promotion.js <br />
-                                      - packages/fashion-theme/components/Promotions/Promotions.js <br />
-                                      - packages/hosting-theme/components/Promotion/Promotion.js <br />
-                                      - packages/movie-theme/components/Promotions/Promotions.js <br />
-                                      - packages/profile-theme/components/SideNavigation/SideNavigation.js <br />
-                                      - packages/starter-project/components/AnimateSlider/AnimateSlider.js
-                                  </td>
-                                </tr>
                             </tbody>
                         </table>
                         <table class="table table-striped log">
