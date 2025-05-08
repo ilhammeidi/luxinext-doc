@@ -115,14 +115,14 @@
                         <h1 class="title">Thank you for Purchasing </h1>
                         <br /><br />
                         <h3>Luxiren - React JS Landing Page and Portfolio Collection</h3>
-                        <h4>Version 3.4.1</h4>
+                        <h4>Version 3.4.2</h4>
                         <hr />
                         <ul>
                             <li>
                                 Created : 19 Nov 2019
                             </li>
                             <li>
-                                Latest Update : 20 Nov 2024
+                                Latest Update : 9 May 2025
                             </li>
                         </ul>
                     </div>
@@ -1126,6 +1126,9 @@ module.exports = withImages({
                               </code></pre>
                                 </li>
                                 <li>
+                                  Still in <code>next.config.js</code> please disable/comment <code>output: 'export'</code>
+                                </li>
+                                <li>
                                   In <code>pages/_app.js</code> in <code>useEffect()</code> add/uncomment this code
                                   <pre><code class="language-js">// /pages/_app.js
 useEffect(() => {
@@ -1611,6 +1614,42 @@ import BatteryStd from '@material-ui/icons/BatteryStd';
                     <div class="col-lg-10">
                         <h1>Change Log</h1>
                         <hr />
+                        <table class="table table-striped log">
+                            <thead>
+                              <tr>
+                                <th>
+                                    <strong>Version 3.4.2 – 8 May, 2025</strong>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                    Chore: Change logo import method
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Files changes: <br />
+                                    - packages/[all-themes]/public/text/brand.js<br />
+                                    - packages/[all-themes]/components/Header/<br />
+                                    - packages/[all-themes]/components/Footer/<br />
+                                    - packages/[all-themes]/components/Forms/<br />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Fixed: Placeholder image invalid url
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    Files changes: <br />
+                                    - packages/[all-themes]/public/images/imgAPI.js<br />
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
                         <table class="table table-striped log">
                             <thead>
                               <tr>
